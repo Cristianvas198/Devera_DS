@@ -46,8 +46,7 @@ def primer_scraping(url):
 
     resultado = parsear(chunks, descripcion)
 
-    print("\n===== RESULTADO PARSEADO =====")
-    print(resultado)
+    return resultado
 
 if __name__ == "__main__":
     url = input("Introduce la URL de la página: ")
