@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS brand CASCADE;
-DROP TABLE IF EXISTS url CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
 DROP TABLE IF EXISTS products_materials CASCADE;
 DROP TABLE IF EXISTS products_processes CASCADE;
@@ -11,23 +10,17 @@ CREATE TABLE brand (
   name_brand varchar(25) NOT NULL
 );
 
-CREATE TABLE url (
-  id_url serial NOT NULL PRIMARY KEY, 
-  name_url varchar(150) NOT NULL,
-  date_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  id_brand int NOT NULL,
-  FOREIGN KEY (id_brand) REFERENCES brand(id_brand)
-);
+
 
 CREATE TABLE products (
   id_products serial NOT NULL PRIMARY KEY, 
   product_name varchar(150) NOT NULL,
   href varchar(150) NOT NULL,
-  product_flag boolean NOT NULL DEFAULT false,
-  packaging varchar(150),
   total_weight float(24),
   transporting_distance float(24),
+  pct_recycling float(24),
   id_brand int NOT NULL,
+  transporting_type varchar(150),
   FOREIGN KEY (id_brand) REFERENCES brand(id_brand)
 );
 
@@ -36,7 +29,9 @@ CREATE TABLE products_materials (
   id_products int NOT NULL,
   name_material varchar(50) NOT NULL,
   quantity float(24),
-  quantity_of_recycling float(24),
+  pct_recycling float(24),
+  pct_product float(24),
+  country varchar(50),
   FOREIGN KEY (id_products) REFERENCES products(id_products)
 );
 
@@ -44,8 +39,10 @@ CREATE TABLE products_processes (
   id_products_processes serial NOT NULL PRIMARY KEY, 
   id_products int NOT NULL,
   name_process varchar(50) NOT NULL,
-  quantity_of_consumption float(24),
+  quantity_energy float(24),
   country varchar(50),
+  type_consumption varchar(50),
+  quantity_water float(24),
   FOREIGN KEY (id_products) REFERENCES products(id_products)
 );
 
@@ -72,19 +69,40 @@ CREATE TABLE products_impacts_resume (
   FOREIGN KEY (id_products) REFERENCES products(id_products)
 );
 
-ALTER TABLE users 
-ADD COLUMN id_brand int;
+CREATE TABLE users
+(
+    id integer NOT NULL DEFAULT PRIMARY KEY,
+    name text NOT NULL,
+    email text NOT NULL,
+    password text NOT NULL,
+    logged boolean DEFAULT false,
+    image_url text,
+    id_brand integer,
+    FOREIGN KEY (id_brand)REFERENCES brand (id_brand) )
 
-ALTER TABLE users
-ADD CONSTRAINT fk_users_brand
-FOREIGN KEY (id_brand)
-REFERENCES brand(id_brand);
+
+CREATE TABLE products_impacts_resume
+(
+    id_pir integer NOT NULL PRIMARY KEY,
+    id_products integer NOT NULL,
+    co2_firgerprint real,
+    pct_benchmark real,
+    impact_score integer,
+    seal varying(5),
+    status varying(25),
+    FOREIGN KEY (id_products) REFERENCES products (id_products));
 
 
-
-
-
-
+CREATE TABLE products_packing (
+  id_products_packing serial NOT NULL PRIMARY KEY, 
+  id_products int NOT NULL,
+  packing_name varchar(150),
+  packing_weight float(24),
+  packing_material varchar(150),
+  pct_recycling float(24),
+  country varchar(150),
+  type_use varchar(150),
+  FOREIGN KEY (id_products) REFERENCES products(id_products));
 
 
 INSERT INTO brand(name_brand)
