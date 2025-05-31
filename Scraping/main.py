@@ -22,6 +22,9 @@ class Producto(BaseModel):
 '''class FootprintRequest(BaseModel):       
     productos: List[str] '''    
 
+@app.get("/")
+async def root():
+    return {"message": "Hola, API está corriendo"}
 
 @app.post("/scrapear")
 async def scrapear_endpoint(body: ScrapeRequest):
