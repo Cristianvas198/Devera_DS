@@ -1,0 +1,9 @@
+# Ignora entornos virtuales y archivos temporales
+__pycache__/
+
+
+# Archivos de entorno
+*.env
+.gitignore
+.git
+deveraai-firebase.json

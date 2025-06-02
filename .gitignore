@@ -1,0 +1,4 @@
+deveraai-firebase.json
+*.env
+__pycache__/
+
