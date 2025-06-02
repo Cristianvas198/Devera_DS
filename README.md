@@ -1,3 +1,4 @@
+![DEVERA](devera.png)
 
 # Devera - Dashboard de Impacto de Productos 🌍  
 
@@ -49,6 +50,10 @@ curl -X POST "https://tu-api.com/analizar" -d '{"id_products": 123, "url_docs": 
 ## 👥 Colaboradores  
 Este proyecto ha sido posible gracias al talento y dedicación de los siguientes colaboradores:  
 
+- **Cristian Vásquez**  
+  - GitHub: [Cristianvas198](https://github.com/Cristianvas198)  
+  - LinkedIn: [Cristian GVM](https://www.linkedin.com/in/cristiangvm98/)  
+
 - **Eric Castro**  
   - GitHub: [auricIecu](https://github.com/auricIecu)  
   - LinkedIn: [e1c1a](https://www.linkedin.com/in/e1c1a/)  
@@ -64,10 +69,6 @@ Este proyecto ha sido posible gracias al talento y dedicación de los siguientes
 - **Rafa Cercós**  
   - GitHub: [Rafacercos](https://github.com/Rafacercos)  
   - LinkedIn: [Rafael Cercós Matas](https://www.linkedin.com/in/rafael-cerc%C3%B3s-matas-792640357/)  
-
-- **Cristian Vásquez**  
-  - GitHub: [Cristianvas198](https://github.com/Cristianvas198)  
-  - LinkedIn: [Cristian GVM](https://www.linkedin.com/in/cristiangvm98/)  
 
 ## 📈 Contribuciones  
 Si quieres mejorar esta plataforma, ¡eres bienvenido! Haz un fork del repositorio, envía pull requests y contribuye al desarrollo de la herramienta. 🚀  
