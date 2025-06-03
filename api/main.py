@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.agente_co2.agent import agente
 from src.agente_co2.db_utils import guardar_todo_en_db
 from docxtpl import DocxTemplate
-from firebase_admin import credentials, storage
+from firebase_admin import credentials, initialize_app
 import firebase_admin
 from dotenv import load_dotenv
 from uuid import uuid4
@@ -20,7 +20,7 @@ import json
 import tempfile
 import os
 import psycopg2
-
+load_dotenv() # Iniciar el para el .env
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -40,12 +40,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-cred = credentials.Certificate("deveraai-firebase.json")
-firebase_admin.initialize_app(cred, {
-    'storageBucket': 'deveraai.firebasestorage.app' 
+
+cred_json = os.getenv("FIREBASE_CREDENTIALS")
+
+# Manejo de error si está vacío
+if not cred_json:
+    raise ValueError("FIREBASE_CREDENTIALS is not set or is empty")
+
+cred_dict = json.loads(cred_json)
+cred = credentials.Certificate(cred_dict)
+
+initialize_app(cred, {
+    'storageBucket': 'deveraai.firebasestorage.app'
 })
 
-load_dotenv() # Iniciar el para el .env
+
 
 # --------------------------------------------------------------------------------------------------------------------- 
 
