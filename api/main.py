@@ -132,7 +132,7 @@ def calculo_co2(product_name: str, url_docs: str, id_brand:int):
     blob = bucket.blob(blob_name)
     blob.upload_from_filename(local_filename)
     blob.make_public()
-
+    
     # Eliminar archivo local
     os.remove(local_filename)
 

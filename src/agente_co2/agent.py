@@ -13,8 +13,6 @@ import requests
 from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, UnstructuredExcelLoader, CSVLoader
 import os
 import psycopg2
-import tempfile
-import requests
 from urllib.parse import urlparse
 
 #----------------------------------------------------------------------------------------------------------------------------------

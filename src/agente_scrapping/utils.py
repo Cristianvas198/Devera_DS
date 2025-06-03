@@ -18,7 +18,7 @@ import os
 
 
 load_dotenv()
-api_key = os.getenv("api_key")
+api_key = os.getenv("gemini_api_key")
 # --------------------------------------- FUNCIONES PARA SCRAPEAR -------------------------------------------------
 
 def scrapear_web(web):
