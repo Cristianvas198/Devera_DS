@@ -8,3 +8,6 @@ __pycache__/
 .git
 deveraai-firebase.json
 entorno_virtual
+
+# Ignorar este notebook específico
+src/agente_co2/lectura_entrada.ipynb

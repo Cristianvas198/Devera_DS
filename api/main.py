@@ -17,8 +17,11 @@ from dotenv import load_dotenv
 from uuid import uuid4
 import re
 import json
+import tempfile
 import os
 import psycopg2
+
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 
