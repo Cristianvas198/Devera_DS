@@ -51,7 +51,7 @@ cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
 cred = credentials.Certificate(cred_dict)
 
 initialize_app(cred, {
-    'storageBucket': 'deveraai.appspot.com'
+    'storageBucket': 'deveraai.firebasestorage.app'
 })
 
 
