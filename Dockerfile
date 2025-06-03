@@ -40,6 +40,14 @@ WORKDIR /app
 COPY . .
 
 # Instalar dependencias de Python
+# Instalar herramientas necesarias para compilar paquetes como psycopg2
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev \
+    libpq-dev \
+    build-essential \
+    --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Comando para ejecutar la aplicación
