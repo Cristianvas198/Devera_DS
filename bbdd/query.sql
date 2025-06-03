@@ -6,10 +6,9 @@ DROP TABLE IF EXISTS products_impacts CASCADE;
 DROP TABLE IF EXISTS products_impacts_resume CASCADE;
 
 CREATE TABLE brand (
-  id_brand serial NOT NULL PRIMARY KEY, 
-  name_brand varchar(25) NOT NULL
+  id_brand serial NOT NULL PRIMARY KEY,
+  name_brand varchar(25) NOT NULL UNIQUE
 );
-
 
 
 CREATE TABLE products (
