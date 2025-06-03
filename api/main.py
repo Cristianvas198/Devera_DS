@@ -11,7 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.agente_co2.agent import agente
 from src.agente_co2.db_utils import guardar_todo_en_db
 from docxtpl import DocxTemplate
-from firebase_admin import credentials, storage, firebase_admin
+from firebase_admin import credentials, storage
+import firebase_admin
 from dotenv import load_dotenv
 from uuid import uuid4
 import re
