@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.agente_co2.agent import agente
 from src.agente_co2.db_utils import guardar_todo_en_db
 from docxtpl import DocxTemplate
-from firebase_admin import credentials, initialize_app
+from firebase_admin import credentials, initialize_app, storage
 import firebase_admin
 from dotenv import load_dotenv
 from uuid import uuid4
@@ -51,7 +51,7 @@ cred_dict = json.loads(cred_json)
 cred = credentials.Certificate(cred_dict)
 
 initialize_app(cred, {
-    'storageBucket': 'deveraai.firebasestorage.app'
+    'storageBucket': 'deveraai.firebasestorage.app' 
 })
 
 
