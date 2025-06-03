@@ -81,8 +81,8 @@ Letras de seal: Se asignan según impact_score.
   "products_impacts": {{
     "raw_materials": <suma de co2_impact de todos los materiales>,
     "manufacturing":  <suma de co2_impact de los procesos>,
-    "transport": <peso en toneladas * distancia * 0.12>,
-    "packaging": <estimado en base a peso y % reciclaje>,
+    "transport": < resultado de peso en toneladas * distancia * 0.12>,
+    "packaging": <calculo del total estimado en base a peso packaging y % reciclaje>,
     "product_use": 0,
     "end_of_life": <estimación con base en % reciclaje>
   }},
@@ -266,6 +266,35 @@ def agente(folder_path:str, id_brand: int):
     return resultado
 
 
-#print(agente("https://firebasestorage.googleapis.com/v0/b/deveraai.firebasestorage.app/o/c355ba1f-7498-420c-98c8-c1e9a7b0fc01%2FPruebaTecnica_FS_FT_tienda_online.pdf?alt=media&token=2c5071a3-1386-4fd5-a50a-b1ad30cc8c53", 1))
 
+from fastapi import FastAPI, HTTPException, Request     
+from pydantic import BaseModel                                                       
+from typing import Optional 
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from docxtpl import DocxTemplate
+from firebase_admin import credentials, initialize_app, storage
+import firebase_admin
+from dotenv import load_dotenv
+from uuid import uuid4
+import re
+import json
+import tempfile
+import os
+import psycopg2
 
+data =agente("https://firebasestorage.googleapis.com/v0/b/deveraai.firebasestorage.app/o/0a0f4834-9bf2-4134-9688-6c9559a9e353%2FLabial.pdf?alt=media&token=d622e6f4-7198-4f50-93b6-2046667e9309", 1)
+print(data)
+
+try:
+    data =agente("https://firebasestorage.googleapis.com/v0/b/deveraai.firebasestorage.app/o/0a0f4834-9bf2-4134-9688-6c9559a9e353%2FLabial.pdf?alt=media&token=d622e6f4-7198-4f50-93b6-2046667e9309", 1)
+    print(data)
+    json_str = re.search(r'\{.*\}', data, re.DOTALL)
+    print(json_str)
+    if not json_str:
+        raise HTTPException(status_code=404, detail="No se encontró un JSON válido en el resultado")
+    context = json.loads(json_str.group())
+    print(context)
+    context["products_impacts_resume"]["co2_fingerprint"] = round(context["products_impacts_resume"]["co2_fingerprint"], 2)
+except Exception as e:
+    raise HTTPException(status_code=500, detail=f"Error analizando CO2 o procesando JSON: {e}")
