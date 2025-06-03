@@ -266,35 +266,3 @@ def agente(folder_path:str, id_brand: int):
     return resultado
 
 
-
-from fastapi import FastAPI, HTTPException, Request     
-from pydantic import BaseModel                                                       
-from typing import Optional 
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
-from docxtpl import DocxTemplate
-from firebase_admin import credentials, initialize_app, storage
-import firebase_admin
-from dotenv import load_dotenv
-from uuid import uuid4
-import re
-import json
-import tempfile
-import os
-import psycopg2
-
-data =agente("https://firebasestorage.googleapis.com/v0/b/deveraai.firebasestorage.app/o/0a0f4834-9bf2-4134-9688-6c9559a9e353%2FLabial.pdf?alt=media&token=d622e6f4-7198-4f50-93b6-2046667e9309", 1)
-print(data)
-
-try:
-    data =agente("https://firebasestorage.googleapis.com/v0/b/deveraai.firebasestorage.app/o/0a0f4834-9bf2-4134-9688-6c9559a9e353%2FLabial.pdf?alt=media&token=d622e6f4-7198-4f50-93b6-2046667e9309", 1)
-    print(data)
-    json_str = re.search(r'\{.*\}', data, re.DOTALL)
-    print(json_str)
-    if not json_str:
-        raise HTTPException(status_code=404, detail="No se encontró un JSON válido en el resultado")
-    context = json.loads(json_str.group())
-    print(context)
-    context["products_impacts_resume"]["co2_fingerprint"] = round(context["products_impacts_resume"]["co2_fingerprint"], 2)
-except Exception as e:
-    raise HTTPException(status_code=500, detail=f"Error analizando CO2 o procesando JSON: {e}")
