@@ -43,17 +43,16 @@ app.add_middleware(
 
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 
-# Manejo de error si está vacío
 if not cred_json:
     raise ValueError("FIREBASE_CREDENTIALS is not set or is empty")
 
 cred_dict = json.loads(cred_json)
+cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
 cred = credentials.Certificate(cred_dict)
 
 initialize_app(cred, {
-    'storageBucket': 'deveraai.firebasestorage.app' 
+    'storageBucket': 'deveraai.appspot.com'
 })
-
 
 
 # --------------------------------------------------------------------------------------------------------------------- 
