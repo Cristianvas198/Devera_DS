@@ -1,4 +1,4 @@
-![DEVERA](devera.png)
+![DEVERA](img/devera.png)
 
 # Devera - Dashboard de Impacto de Productos 🌍  
 
