@@ -2,3 +2,4 @@ deveraai-firebase.json
 *.env
 __pycache__/
 
+entorno_virtual
