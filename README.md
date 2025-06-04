@@ -1,35 +1,33 @@
 ![DEVERA](img/devera.png)
 
-# Devera - Dashboard de Impacto de Productos 🌍  
+# Devera - Dashboard de Impacto de Productos 🌍 
 
-## 📢 Introducción  
-En Devera creemos que cualquier marca, sin importar su tamaño, debe poder medir, comparar y comunicar el impacto ambiental de sus productos. Para ello, automatizamos el **Análisis de Ciclo de Vida (ACV)** con inteligencia artificial y desarrollamos una **aplicación web** que transforma estos datos en valor real para el usuario.  
+## 📢 Introducción 
+En Devera, creemos que cualquier marca—sin importar su tamaño—debe poder medir, comparar y comunicar el impacto ambiental de sus productos. Para lograrlo, hemos desarrollado un sistema que automatiza el Análisis de Ciclo de Vida (ACV) utilizando inteligencia artificial y una plataforma web intuitiva.
 
-## 🚀 Objetivo  
-Diseñar y desarrollar una aplicación web que permita a nuestros clientes vivir todo el recorrido Devera, desde compartir la información de sus productos hasta visualizar informes detallados con datos accionables.  
+Nuestro objetivo es transformar datos ambientales en información accionable que ayude a las empresas a tomar decisiones sostenibles.
 
-## 🏆 El Reto  
-Construir el **Dashboard de Impacto de Productos** más inteligente del mundo, proporcionando un flujo intuitivo y preciso de información:
+## 🚀 Objetivo
+Diseñar y desarrollar una aplicación web que permita a nuestros clientes seguir todo el recorrido Devera, desde compartir información sobre sus productos hasta visualizar informes detallados con datos accionables.
 
-### 🔄 Flujo del usuario  
+## 🏆 El Reto
+Construir el Dashboard de Impacto de Productos más inteligente del mundo, proporcionando un flujo intuitivo y preciso de información:
+
+## 🔄 Flujo del usuario
+
 1. **Onboarding inteligente**  
-   - Un chatbot o asistente guiado ayuda al usuario a recopilar información de sus productos.  
-   - Integración con web scraping para listar productos automáticamente.  
-   - Posibilidad de subir información en diferentes formatos (PDF, Excel, Word).  
+✅ Un asistente guiado ayuda al usuario a recopilar información sobre sus productos. ✅ Integración con web scraping para listar productos automáticamente. ✅ Posibilidad de subir información en distintos formatos (PDF, Excel, Word).
 
 2. **Dashboard interactivo**  
-   - Visualización de productos analizados con opciones de búsqueda y filtrado.  
-   - Comparativas, gráficas de mercado y análisis detallados.  
-   - Exportación de datos en formatos CSV y Excel.  
+✅ Visualización de productos analizados con búsqueda y filtrado avanzado. ✅ Comparativas, gráficos de mercado y análisis detallados. ✅ Exportación de datos en formatos CSV y Excel.
 
 3. **Detalle completo de producto**  
-   - Análisis modular con características clave del producto.  
-   - Impacto ambiental detallado, incluyendo huella de carbono (CO₂).  
-   - Generación automática de sellos de sostenibilidad y QR embebible.  
+✅ Análisis modular con características clave del producto. ✅ Impacto ambiental detallado, incluyendo huella de carbono (CO₂). ✅ Generación automática de sellos de sostenibilidad y QR embebible.
 
-## 🔬 Implementación Técnica  
+## 🔬 Implementación Técnica
+
 ### 📊 Cálculo de huella de carbono  
-La solución se basa en un **modelo de IA** que analiza el impacto ambiental siguiendo las normas **ISO 14040 y 14067**, usando factores estándar de conversión para energía, materiales y transporte.  
+La solución se basa en un modelo de inteligencia artificial, que analiza el impacto ambiental siguiendo las normas ISO 14040 y 14067, con factores estándar de conversión para energía, materiales y transporte.
 
 ### 🛠️ Tecnologías empleadas  
 - **Procesamiento de documentos**: `PyPDFLoader`, `Docx2txtLoader`, `UnstructuredExcelLoader`.  
@@ -48,7 +46,7 @@ curl -X POST "https://tu-api.com/analizar" -d '{"id_products": 123, "url_docs": 
 ```
 
 ## 👥 Colaboradores  
-Este proyecto ha sido posible gracias al talento y dedicación de los siguientes colaboradores:  
+Este proyecto ha sido posible gracias al talento y dedicación de los siguientes colaboradores: 
 
 - **Eric Castro**  
   - GitHub: [auricIecu](https://github.com/auricIecu)  
@@ -68,9 +66,8 @@ Este proyecto ha sido posible gracias al talento y dedicación de los siguientes
 
 - **Cristian Vásquez**  
   - GitHub: [Cristianvas198](https://github.com/Cristianvas198)  
-  - LinkedIn: [Cristian GVM](https://www.linkedin.com/in/cristiangvm98/)   
+  - LinkedIn: [Cristian GVM](https://www.linkedin.com/in/cristiangvm98/)  
+
 
 ## 📈 Contribuciones  
 Si quieres mejorar esta plataforma, ¡eres bienvenido! Haz un fork del repositorio, envía pull requests y contribuye al desarrollo de la herramienta. 🚀  
-
-
